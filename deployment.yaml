@@ -18,7 +18,7 @@ spec:
         app: nodejs
     spec:
       containers:
-      - image: brinendamketum/gitopsimage:3
+      - image: brinendamketum/gitopsimage:5
         name: nodejs
         resources: {}
 status: {}
