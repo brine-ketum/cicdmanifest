@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: cicd-demo
+    app: nodejs
   name: nodejs
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: cicd-demo
@@ -23,16 +23,16 @@ spec:
         resources: {}
 status: {}
 ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: lb-service
-#   labels:
-#     app: lb-service
-# spec:
-#   type: LoadBalancer
-#   ports:
-#   - port: 80
-#     targetPort: 5000
-#   selector:
-#     app: flaskdemo
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-service
+  labels:
+    app: lb-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: flaskdemo
