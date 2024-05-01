@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: nodejs
-  name: cicd-demo
+  name: nodeapp
 spec:
   replicas: 3
   selector:
