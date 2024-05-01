@@ -3,36 +3,36 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: flaskdemo
-  name: flaskdemo
+    app: cicd-demo
+  name: nodejs
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: flaskdemo
+      app: cicd-demo
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: flaskdemo
+        app: cicd-demo
     spec:
       containers:
       - image: brinendamketum/gitopsimage:14
-        name: flaskdemo
+        name: nodejs
         resources: {}
 status: {}
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: lb-service
-  labels:
-    app: lb-service
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 5000
-  selector:
-    app: flaskdemo
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: lb-service
+#   labels:
+#     app: lb-service
+# spec:
+#   type: LoadBalancer
+#   ports:
+#   - port: 80
+#     targetPort: 5000
+#   selector:
+#     app: flaskdemo
