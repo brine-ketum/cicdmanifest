@@ -9,13 +9,13 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: cicd-demo
+      app: nodejs
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: cicd-demo
+        app: nodejs
     spec:
       containers:
       - image: brinendamketum/gitopsimage:16
@@ -35,4 +35,4 @@ spec:
   - port: 80
     targetPort: 3000
   selector:
-    app: flaskdemo
+    app: nodejs
