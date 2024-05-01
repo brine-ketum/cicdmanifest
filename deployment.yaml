@@ -18,7 +18,7 @@ spec:
         app: cicd-demo
     spec:
       containers:
-      - image: brinendamketum/gitopsimage:15
+      - image: brinendamketum/gitopsimage:16
         name: nodejs
         resources: {}
 status: {}
