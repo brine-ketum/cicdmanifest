@@ -1,5 +1,6 @@
 ## Install minikube cluster 
-A minikube cluster is a one cluster with Master node (processes) and worker nodes (processess) https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/
+A minikube cluster is a One-Node cluster with Master node (processes) and worker nodes (processess) https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/
+
 For this demo, we will install it and linux and Windows OS
 # Linux
 sudo apt-get update
