@@ -1,3 +1,6 @@
+# Prerequisite
+AWS account 
+
 ## Install minikube cluster 
 A minikube cluster is a One-Node cluster with Master node (processes) and worker nodes (processess) https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/
 
