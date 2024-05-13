@@ -2,17 +2,25 @@
 A minikube cluster is a One-Node cluster with Master node (processes) and worker nodes (processess) https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/
 
 For this demo, we will install it and linux and Windows OS
-# Linux
+### Linux
 sudo apt-get update
+
 sudo apt-get install apt-transport-https curl
+
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
 minikube start
+
 minikube status 
 
-# Windows 
+### Windows 
+
 Open PowerShell as Administrator and run:
+
 choco install minikube
+
 minikube start --driver=hyperv
 
 ## Jenkins installation
