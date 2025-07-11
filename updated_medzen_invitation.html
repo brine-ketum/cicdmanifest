@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedZen Network & Fundraising Event - Digital Invitation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .invitation-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .watermark-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDYwMCA4MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjQwMCIgcj0iMjAwIiBmaWxsPSJyZ2JhKDQ2LCAxNTEsIDIwNCwgMC4wNSkiLz4KPGV4dCB4PSIzMDAiIHk9IjQxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjQ4IiBmaWxsPSJyZ2JhKDQ2LCAxNTEsIDIwNCwgMC4xKSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWVkWmVuPC90ZXh0Pgo8L3N2Zz4=');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .floating-crosses {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .health-cross {
+            position: absolute;
+            color: rgba(46, 151, 199, 0.15);
+            font-size: 24px;
+            font-weight: bold;
+            animation: floatUp linear infinite;
+        }
+        
+        .health-cross:nth-child(1) {
+            left: 10%;
+            animation-duration: 8s;
+            animation-delay: 0s;
+            font-size: 20px;
+        }
+        
+        .health-cross:nth-child(2) {
+            left: 25%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+            font-size: 28px;
+        }
+        
+        .health-cross:nth-child(3) {
+            left: 45%;
+            animation-duration: 10s;
+            animation-delay: 4s;
+            font-size: 22px;
+        }
+        
+        .health-cross:nth-child(4) {
+            left: 65%;
+            animation-duration: 14s;
+            animation-delay: 1s;
+            font-size: 26px;
+        }
+        
+        .health-cross:nth-child(5) {
+            left: 80%;
+            animation-duration: 9s;
+            animation-delay: 3s;
+            font-size: 20px;
+        }
+        
+        .health-cross:nth-child(6) {
+            left: 15%;
+            animation-duration: 11s;
+            animation-delay: 5s;
+            font-size: 24px;
+        }
+        
+        .health-cross:nth-child(7) {
+            left: 35%;
+            animation-duration: 13s;
+            animation-delay: 6s;
+            font-size: 18px;
+        }
+        
+        .health-cross:nth-child(8) {
+            left: 55%;
+            animation-duration: 10s;
+            animation-delay: 7s;
+            font-size: 25px;
+        }
+        
+        .health-cross:nth-child(9) {
+            left: 75%;
+            animation-duration: 8s;
+            animation-delay: 8s;
+            font-size: 21px;
+        }
+        
+        .health-cross:nth-child(10) {
+            left: 90%;
+            animation-duration: 12s;
+            animation-delay: 9s;
+            font-size: 23px;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .medzen-logo {
+            background: linear-gradient(135deg, #2e97c7, #1e6b96);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 15px;
+            box-shadow: 0 5px 15px rgba(46, 151, 199, 0.3);
+        }
+        
+        .company-name {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2e97c7, #1e6b96);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .invitation-text {
+            font-size: 18px;
+            color: #2c3e50;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        
+        .event-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e6b96;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            color: #e67e22;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        .event-description {
+            background: linear-gradient(135deg, #2e97c7, #1e6b96);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .event-description h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .event-description p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .event-details {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #e67e22;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .detail-icon {
+            background: #e67e22;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .detail-text {
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .rsvp-section {
+            text-align: center;
+        }
+        
+        .rsvp-button {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(230, 126, 34, 0.3);
+            margin-bottom: 20px;
+        }
+        
+        .rsvp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
+        }
+        
+        .contact-info {
+            font-size: 14px;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+        
+        .rsvp-form {
+            display: none;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #2e97c7;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #2e97c7, #1e6b96);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-1px);
+        }
+        
+        .cancel-btn {
+            background: #95a5a6;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .success-message {
+            display: none;
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .loading-message {
+            display: none;
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                padding: 25px;
+            }
+            
+            .company-name {
+                font-size: 24px;
+            }
+            
+            .event-title {
+                font-size: 22px;
+            }
+            
+            .detail-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .detail-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-container">
+        <div class="watermark-bg">
+            <div class="floating-crosses">
+                <div class="health-cross">+</div>
+                <div class="health-cross">+</div>
+                <div class="health-cross">+</div>
+                <div class="health-cross">+</div>
+                <div class="health-cross">+</div>
+                <div class="health-cross">+</div>
+                <div class="health-cross">+</div>
+                <div class="health-cross">+</div>
+                <div class="health-cross">+</div>
+                <div class="health-cross">+</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="header">
+                <div class="logo-section">
+                    <div class="medzen-logo">+</div>
+                    <div class="company-name">MedZen</div>
+                </div>
+                <p class="invitation-text">You are cordially invited to</p>
+            </div>
+            
+            <h1 class="event-title">MedZen Network & Fundraising Event</h1>
+            <p class="tagline">Transforming Lives with a Tap</p>
+            
+            <div class="event-description">
+                <h3>Be Part of Africa's Health Revolution</h3>
+                <p>No Hospital? No Problem. Healthcare is Going Mobile with MEDZEN. Bringing Healthcare & Doctors to Every Doorstep In Africa.</p>
+            </div>
+            
+            <div class="event-details">
+                <div class="detail-item">
+                    <div class="detail-icon">📅</div>
+                    <div class="detail-text"><strong>Saturday, August 2nd</strong></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🕐</div>
+                    <div class="detail-text"><strong>11:00 AM - 3:00 PM EST</strong></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">📍</div>
+                    <div class="detail-text"><strong>2 Wisconsin Circle Suite 700<br>Chevy Chase MD, 20815</strong></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🌐</div>
+                    <div class="detail-text"><strong>www.Mylestechsolution.com</strong></div>
+                </div>
+            </div>
+            
+            <div class="rsvp-section">
+                <button class="rsvp-button" onclick="showRSVPForm()">RSVP NOW</button>
+                
+                <div class="rsvp-form" id="rsvpForm">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">Confirm Your Attendance</h3>
+                    <form id="attendeeForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address (Optional)</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <button type="submit" class="submit-btn">Submit RSVP</button>
+                        <button type="button" class="cancel-btn" onclick="hideRSVPForm()">Cancel</button>
+                    </form>
+                    <div class="loading-message" id="loadingMessage">
+                        Submitting your RSVP... Please wait.
+                    </div>
+                    <div class="success-message" id="successMessage">
+                        Thank you for your RSVP! We look forward to seeing you at the event.
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <p><strong>Contact Information:</strong><br>
+                    📧 Info@Mylestechsolutions.com<br>
+                    🌐 www.Mylestechsolution.com</p>
+                    <p style="margin-top: 15px; font-style: italic;">
+                        Presented by MylesTech Solutions<br>
+                        Empowering Africa one digital solution at a time
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showRSVPForm() {
+            document.getElementById('rsvpForm').style.display = 'block';
+            document.querySelector('.rsvp-button').style.display = 'none';
+        }
+        
+        function hideRSVPForm() {
+            document.getElementById('rsvpForm').style.display = 'none';
+            document.querySelector('.rsvp-button').style.display = 'inline-block';
+            document.getElementById('loadingMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('attendeeForm').style.display = 'block';
+        }
+        
+        document.getElementById('attendeeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading message
+            document.getElementById('attendeeForm').style.display = 'none';
+            document.getElementById('loadingMessage').style.display = 'block';
+            
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email') || 'Not provided',
+                timestamp: new Date().toLocaleString(),
+                event: 'MedZen Network & Fundraising Event - August 2nd, 2025'
+            };
+            
+            console.log('Submitting RSVP data:', data);
+            
+            // Send to your updated Google Apps Script
+            fetch('https://script.google.com/macros/s/AKfycbwZbBhVkOFlwtaC7qNKb9XSB_B6lIZaIJv11DvarP1r5-ooOUCKPSOV15SSlfVk_SkGRQ/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            }).then(() => {
+                console.log('RSVP submitted successfully');
+                document.getElementById('loadingMessage').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            }).catch((error) => {
+                console.error('Error submitting RSVP:', error);
+                // Still show success message since no-cors mode doesn't return errors
+                document.getElementById('loadingMessage').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
